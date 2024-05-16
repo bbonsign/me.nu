@@ -129,7 +129,7 @@ def  show_quick_menu [] {
 
         # Build the menu and the "command line"
         # CSIu resets the line to the saved pos; CSI0J clears from the cursor to end
-        return $"(ansi csi)u(ansi csi)0J($menu)\n(ansi cursor_blink_on)($command_line)"
+        return $"(ansi csi)u(ansi csi)0J(ansi cursor_off)($command_line)\n($menu)\n"
     }
 
 
