@@ -12,20 +12,20 @@ $env.config.keybindings ++= [{
 }]
 
 const example_config = '
-# Example config. Place it in your `config.nu`
-$env.nu_menu_commands = {
-    {
-        description: "Refresh nu"
-        keymap: "r"
-        command: { nu }
-    }
-    {
-        description: "Git Status"
-        keymap: "gs"
-        command: { git status }
-        group: "Git"
-    }
-}
+  # Example config. Place it in your `config.nu`
+  $env.nu_menu_commands = [
+      {
+          description: "Refresh nu"
+          keymap: "r"
+          command: { nu }
+      }
+      {
+          description: "Git Status"
+          keymap: "gs"
+          command: { git status | print}
+          group: "Git"
+      }
+  ]
 '
 
 # Display me.nu
