@@ -6,7 +6,7 @@
 #   - vim / micro (* for micro edit fzf-code last two lines)
 
 # Cd directories using fzf and fd
-def-env fzf-dir [] {(
+def --env fzf-dir [] {(
     (fd -d 4 -c always --type directory)
     | (fzf --preview "fd -d 1 -c always . {}" 
         --ansi --layout reverse --tiebreak length,chunk)

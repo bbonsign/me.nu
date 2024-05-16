@@ -36,7 +36,7 @@ const example_config = '
 # - If no match is found, the selection is reset
 # - If the match starts with a Space, the command is not executed 
 #   but sent to the command line for further editing
-def-env show_quick_menu [] {
+def  show_quick_menu [] {
     # Sanity check + error message
     if not ("nu_menu_commands" in $env) {
         print $"\n(ansi red)Error: env.nu_menu_commands is not set!(ansi reset)\n"
@@ -124,7 +124,7 @@ def-env show_quick_menu [] {
         }
         | into record | flatten | into record
         | table -c
-        
+
         let command_line = $"($prompt_left)(ansi reset) ($cmd)"
 
         # Build the menu and the "command line"
@@ -146,7 +146,7 @@ def-env show_quick_menu [] {
     print -n $"(ansi csi)s"  # Save cursor
     while (($cmd == '') or (not (($cmd | str trim) in $keys))) {
         # Print menu and wait input
-        print -n (render full $cmd $edit_mode)         
+        print -n (render full $cmd $edit_mode)
         let i = (input listen -t [key]).code
 
 
@@ -157,7 +157,7 @@ def-env show_quick_menu [] {
         }
 
         # Space toggles edit mode
-        if ($i == " ") { 
+        if ($i == " ") {
             $edit_mode = (not $edit_mode )
             continue
         }
@@ -194,7 +194,7 @@ def-env show_quick_menu [] {
         | str trim 
         | str replace -rma '^{|}$' ''
         | str trim
-        | commandline $in
+        | commandline edit --replace $in
     } else {
         do --env $command
     }
