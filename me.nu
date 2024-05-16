@@ -1,4 +1,3 @@
-
 # Keybinding config
 $env.config.keybindings ++= [{
     name: start_something
