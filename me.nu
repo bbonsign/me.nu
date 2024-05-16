@@ -3,7 +3,7 @@
 $env.config.keybindings ++= [{
     name: start_something
     modifier: CONTROL
-    keycode: Space
+    keycode: Char_S
     mode: emacs
     event: {
         send: executehostcommand
