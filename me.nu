@@ -197,5 +197,6 @@ def  show_quick_menu [] {
         | commandline edit --replace $in
     } else {
         do --env $command
+        let i = (input listen -t [key]).code
     }
 }
