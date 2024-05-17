@@ -43,7 +43,7 @@ def fzf-code [
     }
 
     # Ripgrep
-    ( rg ($flags) 
+    ( rg ...$flags 
         --line-number --with-filename --color=always
         --field-match-separator ' ' --max-depth ($max_depth)
         ($query)
